@@ -19,3 +19,16 @@ AddNTimes::
 	dec a
 	jr nz, .loop
 	ret
+
+AddNTimesWord::
+; add bc to hl de times
+	ld a, d
+	or e
+	ret z
+.loop
+	add hl, bc
+	dec de
+	ld a, d
+	or e
+	jr nz, .loop
+	ret
