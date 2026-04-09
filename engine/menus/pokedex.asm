@@ -403,9 +403,6 @@ Pokedex_PlacePokemonList:
 	db "----------@"
 .getPokemonName
 	call PokedexToIndex
-	; TODO: Update GetMonName to use 16-bit index
-	ld a, [wPokedexNum]
-	ld [wNamedObjectIndex], a
 	call GetMonName
 .skipGettingName
 	pop hl

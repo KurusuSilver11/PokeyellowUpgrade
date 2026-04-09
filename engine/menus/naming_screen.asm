@@ -7,8 +7,11 @@ AskName:
 	hlcoord 0, 0
 	lb bc, 4, 11
 	call z, ClearScreenArea ; only if in wild battle
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, [wCurPartySpecies]
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	ld hl, DoYouWantToNicknameText
 	call PrintText
@@ -474,12 +477,15 @@ PrintNamingText:
 	ld de, RivalsTextString
 	dec a
 	jr z, .notNickname
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, [wCurPartySpecies]
 	ld [wMonPartySpriteSpecies], a
 	push af
 	farcall WriteMonPartySpriteOAMBySpecies
 	pop af
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	hlcoord 4, 1
 	call PlaceString

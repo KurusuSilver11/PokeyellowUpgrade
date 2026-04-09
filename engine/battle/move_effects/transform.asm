@@ -114,8 +114,11 @@ TransformEffect_:
 .copyStats
 ; original (unmodified) stats and stat mods
 	pop hl
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, [hl]
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	ld hl, wEnemyMonUnmodifiedAttack
 	ld de, wPlayerMonUnmodifiedAttack

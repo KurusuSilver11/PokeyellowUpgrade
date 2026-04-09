@@ -42,6 +42,9 @@ Printer_GetMonStats:
 	lb bc, 2, 3
 	call PrintNumber
 
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wPokedexNum+1], a
 	ld a, [wMonHIndex]
 	ld [wPokedexNum], a
 	ld [wCurSpecies], a

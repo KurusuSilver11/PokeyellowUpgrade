@@ -187,15 +187,21 @@ LoadTradingGFXAndMonNames:
 	call EnableLCD
 	xor a
 	ldh [hAutoBGTransferEnabled], a
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, [wTradedPlayerMonSpecies]
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	ld hl, wNameBuffer
 	ld de, wStringBuffer
 	ld bc, NAME_LENGTH
 	call CopyData
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, [wTradedEnemyMonSpecies]
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	jp GetMonName
 
 Trade_LoadMonPartySpriteGfx:
