@@ -1758,7 +1758,9 @@ wCapturedMonSpecies:: db
 ; which will be the first mon sent out.
 wFirstMonsNotOutYet:: db
 
-wPokedexNum:: dw
+wPokedexNum::
+wNamedObjectIndexWord::
+	 dw
 
 wNamedObjectIndex::
 wTempByteValue::

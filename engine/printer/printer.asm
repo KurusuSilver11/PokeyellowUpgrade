@@ -866,7 +866,10 @@ PrintPCBox_PlaceBoxMonInfo:
 	ld a, [de]
 	cp $ff
 	jr z, .done
+	; TODO: Update loading argument for GetMonName
 	ld [wPokedexNum], a
+	ld a, 0
+	ld [wPokedexNum+1], a
 	push bc
 	push hl
 	push de

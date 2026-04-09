@@ -427,8 +427,11 @@ StatusScreen2:
 
 	hlcoord 9, 1
 	call StatusScreen_ClearName
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, [wMonHIndex]
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	hlcoord 9, 1
 	call PlaceString

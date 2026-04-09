@@ -128,6 +128,7 @@ LoadTownMap_Nest:
 	ld [hl], $ff
 	push hl
 	call DisplayWildLocations
+	; TODO: Check this and update
 	call GetMonName
 	hlcoord 1, 0
 	call PlaceString

@@ -666,7 +666,10 @@ TradeCenter_PrintPartyListNames:
 	ld a, [de]
 	cp $ff
 	ret z
-	ld [wNamedObjectIndex], a
+	; TODO: Update loading argument for GetMonName
+	ld [wNamedObjectIndexWord], a
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	push bc
 	push hl
 	push de
@@ -701,8 +704,11 @@ TradeCenter_Trade:
 	ld c, a
 	ld b, 0
 	add hl, bc
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, [hl]
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	ld hl, wNameBuffer
 	ld de, wNameOfPlayerMonToBeTraded
@@ -713,8 +719,11 @@ TradeCenter_Trade:
 	ld c, a
 	ld b, 0
 	add hl, bc
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, [hl]
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	ld hl, WillBeTradedText
 	bccoord 1, 14
