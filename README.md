@@ -1,30 +1,23 @@
 # Pokémon Yellow Upgrade [![Build Status][ci-badge]][ci]
 
-This is a disassembly of Pokémon Yellow, upgraded for 16-bit index (in progress), upgraded dual-language text system (coming soonish), and more.
+This specific branch is not assigned to anyone yet. 
+It will be for upgrading the text engine. Any coder assigned to this repo can work on it, but try to communicate. 
 
-It builds the following ROMs:
+Basic information: 
+In Generation 1/2, the games support 1 language. For reasons relating to my (KurusuSilver11) true project, Light Pink, I need the engine upgraded to support at least two; English, and Japanese. 
 
-- Pokemon Yellow (UE) [C][!].gbc  `sha1: cc7d03262ebfaf2f06772c1a480c7d9d5f4a38e1`
-- YELLMONS.GB (debug build) `sha1: d44e96eddfbdad633cbe4e6e64915e9e198974b0`
-- Dmgapse0.h08.patch `sha1: f3346a5559d52c296b8feab0cdbbfb0e250ac161`
+Here's what I know about the current engine: 
+It loads the entire english font into VRAM and takes the one-character tiles to make every word. 
+Due to this, it can only fully fit one language. There are blank tiles on the one single image with the entire font, but not enough for the japanese font (that one took more, if not all tiles btw). 
+Now, I do have ideas on how to change this.
+Engezerstorung on the Pret Server gave me the idea to make it load the character tiles needed for the sentence dynamically, in order to fit any language I want. He said it's done similarly in Zelda oracles of ___. 
+I have three base ideas on how that'd work.
 
-To set up the repository, see [**INSTALL.md**](INSTALL.md).
+1. One big image with both fonts. The game sends individual tiles to VRAM dynamically when needed.
+2. Every character is a small one-tile image. Mostly if #1 doesn't work.
+3. The english font image and the japanese font image. I don't know why this would be the method needed, but I'm putting it out there.
 
-
-## See also
-
-- [**Wiki**][wiki] (includes [tutorials][tutorials])
-- [**Symbols**][symbols]
-- [**Tools**][tools]
-
-You can find pret on [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
-You can find the actual devs of this fork on [Discord (KurusuSilver11)](https://discord.gg/5ut2p7JVPT).
-
-For other pret projects, see [pret.github.io](https://pret.github.io/).
-
-[wiki]: https://github.com/pret/pokeyellow/wiki
-[tutorials]: https://github.com/pret/pokeyellow/wiki/Tutorials
-[symbols]: https://github.com/pret/pokeyellow/tree/symbols
-[tools]: https://github.com/pret/gb-asm-tools
-[ci]: https://github.com/pret/pokeyellow/actions
-[ci-badge]: https://github.com/pret/pokeyellow/actions/workflows/main.yml/badge.svg
+I do not have any further resource, but here's the disassembly I found for the zelda game. I didn't look at the files, so it may be worthless. 
+https://github.com/Stewmath/oracles-disasm
+It IS a GBC game, so its code should be somewhat compatible. 
+In the Zelda game, the font is one image. I don't know where they keep their text engine.
