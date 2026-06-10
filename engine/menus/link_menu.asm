@@ -480,10 +480,13 @@ CombinedLevelsAbove50::
 	ret
 
 asm_f5689::
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	pop af
 	pop bc
 	pop hl
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	ld hl, ColosseumHeightText
 	call PrintText
@@ -491,10 +494,13 @@ asm_f5689::
 	ret
 
 asm_f569b::
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	pop af
 	pop bc
 	pop hl
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	ld hl, ColosseumWeightText
 	call PrintText
@@ -502,8 +508,11 @@ asm_f569b::
 	ret
 
 asm_f56ad::
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, [hl]
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	ld hl, ColosseumEvolvedText
 	call PrintText

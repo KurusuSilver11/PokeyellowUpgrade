@@ -5,12 +5,15 @@ GetMonName::
 	ld a, BANK(MonsterNames)
 	ldh [hLoadedROMBank], a
 	ld [rROMB], a
-	ld a, [wNamedObjectIndex]
+	ld a, [wNamedObjectIndexWord]
 	dec a
+	ld e, a
+	ld a, [wNamedObjectIndexWord+1]
+	ld d, a
 	ld hl, MonsterNames
 	ld c, NAME_LENGTH - 1
 	ld b, 0
-	call AddNTimes
+	call AddNTimesWord
 	ld de, wNameBuffer
 	push de
 	ld bc, NAME_LENGTH - 1

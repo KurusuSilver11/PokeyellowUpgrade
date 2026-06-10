@@ -714,21 +714,41 @@ INCLUDE "data/pokemon/dex_entries.asm"
 PokedexToIndex:
 	; converts the Pokédex number at [wPokedexNum] to an index
 	push bc
+	push de
 	push hl
+	; BC = wPokedexNum
 	ld a, [wPokedexNum]
+	ld c, a
+	ld a, [wPokedexNum+1]
 	ld b, a
-	ld c, 0
+	; DE = Index Counter = 0
+	ld e, 0
+	ld d, 0
 	ld hl, PokedexOrder
 
 .loop ; go through the list until we find an entry with a matching dex number
-	inc c
+	inc de
+	ld a, [hli]
+	cp c
+	jr nz, .not_equal_lsb
 	ld a, [hli]
 	cp b
-	jr nz, .loop
+	jr nz, .not_equal_msb
+	jp .end
+.not_equal_lsb
+	inc hl
+	jp .loop
+.not_equal_msb
+	jp .loop
 
-	ld a, c
+.end
+	; wPokedexNum = DE
+	ld a, e
 	ld [wPokedexNum], a
+	ld a, d
+	ld [wPokedexNum+1], a
 	pop hl
+	pop de
 	pop bc
 	ret
 
@@ -738,12 +758,16 @@ IndexToPokedex:
 	push hl
 	ld a, [wPokedexNum]
 	dec a
-	ld hl, PokedexOrder
-	ld b, 0
 	ld c, a
+	ld a, [wPokedexNum+1]
+	ld b, a
+	ld hl, PokedexOrder
 	add hl, bc
-	ld a, [hl]
+	add hl, bc
+	ld a, [hli]
 	ld [wPokedexNum], a
+	ld a, [hl]
+	ld [wPokedexNum+1], a
 	pop hl
 	pop bc
 	ret

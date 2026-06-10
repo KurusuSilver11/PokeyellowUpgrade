@@ -1758,12 +1758,15 @@ wCapturedMonSpecies:: db
 ; which will be the first mon sent out.
 wFirstMonsNotOutYet:: db
 
+wPokedexNum::
+wNamedObjectIndexWord::
+	 dw
+
 wNamedObjectIndex::
 wTempByteValue::
 wNumSetBits::
 wTypeEffectiveness::
 wMoveType::
-wPokedexNum::
 wTempTMHM::
 wUsingPPUp::
 wMaxPP::
@@ -1882,8 +1885,6 @@ wSerialPlayerDataBlock:: ; ds $1a8
 wPseudoItemID:: db
 
 wUnusedAlreadyOwnedFlag:: db
-
-	ds 2
 
 wEvoStoneItemID:: db
 

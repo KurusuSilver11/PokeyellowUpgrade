@@ -1,6 +1,6 @@
 TechnicalMachinePrices:
 ; In thousands (nybbles).
-	nybble_array
+	nybble_array TechnicalMachinePrices
 	nybble 3 ; TM01
 	nybble 2 ; TM02
 	nybble 2 ; TM03

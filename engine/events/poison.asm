@@ -13,7 +13,7 @@ ApplyOutOfBattlePoisonDamage:
 	and a
 	jp z, .noBlackOut
 	call IncrementDayCareMonExp
-	call UpdatePikachuHappinessAndMood
+	call Func_c4c7
 	ld a, [wStepCounter]
 	and $3 ; is the counter a multiple of 4?
 	jp nz, .skipPoisonEffectAndSound ; only apply poison damage every fourth step
@@ -125,32 +125,28 @@ ApplyOutOfBattlePoisonDamage:
 	ld [wOutOfBattleBlackout], a
 	ret
 
-UpdatePikachuHappinessAndMood:
+Func_c4c7:
 	ld a, [wStepCounter]
-	and a ; is the counter nonzero?
-	jr nz, .noWalkingHappinessIncrease ; only increase Pikachu's happiness every 256 steps
+	and a
+	jr nz, .asm_c4de
 	call Random
-	and 1 ; 50% chance to increase happiness
-	jr z, .noWalkingHappinessIncrease
+	and $1
+	jr z, .asm_c4de
 	callfar_ModifyPikachuHappiness PIKAHAPPY_WALKING
-.noWalkingHappinessIncrease
-; every step, mood converges by 1 unit towards the central value of 128:
-; if it's lower than 128 it increases by 1, if it's higher, it decreases
+.asm_c4de
 	ld hl, wPikachuMood
 	ld a, [hl]
-	cp 128 ; central value
-	jr z, .update_wd49b ; mood == 128, don't modify it
-	jr c, .increaseMood ; mood < 128, must increase by 1
-	; mood > 128, must decrease by 1 (so decrease by 2 and then increase by 1)
+	cp $80
+	jr z, .asm_c4ef
+	jr c, .asm_c4ea
 	dec a
 	dec a
-.increaseMood
+.asm_c4ea
 	inc a
 	ld [hl], a
-; if the mood has reached its "stable" central value, do not update wd49b
-	cp 128
+	cp $80
 	ret nz
-.update_wd49b
+.asm_c4ef
 	xor a
-	ld [wd49b], a ; variable used in other mood-related functions, to keep track if the mood was "stable"
+	ld [wd49b], a
 	ret

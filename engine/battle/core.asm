@@ -6301,8 +6301,11 @@ LoadEnemyMonData:
 	inc de
 	ld a, [hl]     ; base exp
 	ld [de], a
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, [wEnemyMonSpecies2]
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	ld hl, wNameBuffer
 	ld de, wEnemyMonNick

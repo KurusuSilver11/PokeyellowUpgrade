@@ -104,7 +104,7 @@ SilphCo8FSilphWorkerMText:
 	jp TextScriptEnd
 
 .SilphIsFinishedText:
-	text_far _SilphCo8FSilphWorkerMSilphIsFinishedText
+	text_far __SilphCo8FSilphWorkerMThanksForSavingUsText
 	text_end
 
 .ThanksForSavingUsText:

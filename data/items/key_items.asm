@@ -1,5 +1,5 @@
 KeyItemFlags:
-	bit_array
+	bit_array KeyItemFlags
 	dbit FALSE ; MASTER_BALL
 	dbit FALSE ; ULTRA_BALL
 	dbit FALSE ; GREAT_BALL
