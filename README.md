@@ -1,4 +1,4 @@
-# Pokémon Yellow Upgrade [![Build Status][ci-badge]][ci]
+# Pokémon Yellow Upgrade (Text Engine Branch)
 
 This specific branch is not assigned to anyone yet. 
 It will be for upgrading the text engine. Any coder assigned to this repo can work on it, but try to communicate. 
