@@ -1,6 +1,6 @@
-# Pokémon Yellow [![Build Status][ci-badge]][ci]
+# Pokémon Yellow Upgrade [![Build Status][ci-badge]][ci]
 
-This is a disassembly of Pokémon Yellow.
+This is a disassembly of Pokémon Yellow, upgraded for 16-bit index (in progress), upgraded dual-language text system (coming soonish), and more.
 
 It builds the following ROMs:
 
@@ -17,7 +17,8 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 - [**Symbols**][symbols]
 - [**Tools**][tools]
 
-You can find us on [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
+You can find pret on [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
+You can find the actual devs of this fork on [Discord (KurusuSilver11)](https://discord.gg/5ut2p7JVPT).
 
 For other pret projects, see [pret.github.io](https://pret.github.io/).
 
