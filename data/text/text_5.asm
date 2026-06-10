@@ -119,6 +119,12 @@ _DugAHoleText::
 	line "dug a hole!"
 	prompt
 
+_InnardsOutText::
+	text_start
+	line "prepares to eject"
+	cont "its organs!"
+	prompt
+
 _BecameConfusedText::
 	text "<TARGET>"
 	line "became confused!"

@@ -1106,6 +1106,9 @@ ChargeMoveEffectText:
 	jr z, .gotText
 	cp DIG
 	ld hl, DugAHoleText
+	jr z, .gotText
+	cp INNARDS_OUT
+	ld hl, InnardsOutText
 .gotText
 	ret
 
@@ -1131,6 +1134,10 @@ FlewUpHighText:
 
 DugAHoleText:
 	text_far _DugAHoleText
+	text_end
+
+InnardsOutText:
+	text_far _InnardsOutText
 	text_end
 
 TrappingEffect:
@@ -1334,6 +1341,9 @@ MimicLearnedMoveText:
 
 LeechSeedEffect:
 	jpfar LeechSeedEffect_
+
+PurifyEffect:
+	jpfar PurifyEffect_
 
 SplashEffect:
 	call PlayCurrentMoveAnimation

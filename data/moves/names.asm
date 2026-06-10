@@ -165,5 +165,7 @@ MoveNames::
 	li "SUPER FANG"
 	li "SLASH"
 	li "SUBSTITUTE"
+	li "INNARDS OUT"
+	li "PURIFY"
 	li "STRUGGLE"
 	assert_list_length NUM_ATTACKS

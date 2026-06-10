@@ -41,7 +41,7 @@ EvosMovesPointerTable:
 	dw PinsirEvosMoves
 	dw TangelaEvosMoves
 	dw MissingNo1FEvosMoves
-	dw MissingNo20EvosMoves
+	dw PyukumukuEvosMoves
 	dw GrowlitheEvosMoves
 	dw OnixEvosMoves
 	dw FearowEvosMoves
@@ -560,10 +560,16 @@ MissingNo1FEvosMoves:
 ; Learnset
 	db 0
 
-MissingNo20EvosMoves:
+PyukumukuEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
+	db 9, COUNTER
+;	db 10, MIRROR_COAT ; Unimplemented in this build
+	db 11, PURIFY ; make this move work
+	db 30, RECOVER
+	db 45, TOXIC
+	db 50, INNARDS_OUT
 	db 0
 
 GrowlitheEvosMoves:

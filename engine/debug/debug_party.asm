@@ -17,6 +17,7 @@ DebugNewGameParty: ; unreferenced except in _DEBUG
 	db PERSIAN, 80
 	db JIGGLYPUFF, 15
 	db STARTER_PIKACHU, 5
+	db PYUKUMUKU, 50
 	db -1 ; end
 
 PrepareNewGameDebug: ; dummy except in _DEBUG
@@ -49,6 +50,17 @@ IF DEF(_DEBUG)
 	ld a, SURF
 	ld [hli], a
 	ld a, STRENGTH
+	ld [hl], a
+
+	; Pyukumuku. 
+	ld hl, wPartyMon5Moves
+	ld a, INNARDS_OUT
+	ld [hli], a
+	ld a, PURIFY
+	ld [hli], a
+	ld a, TOXIC
+	ld [hli], a
+	ld a, BIDE
 	ld [hl], a
 
 	; Get some debug items.

@@ -31,7 +31,7 @@ PokedexEntryPointers:
 	dw PinsirDexEntry
 	dw TangelaDexEntry
 	dw MissingNoDexEntry
-	dw MissingNoDexEntry
+	dw PyukumukuDexEntry
 	dw GrowlitheDexEntry
 	dw OnixDexEntry
 	dw FearowDexEntry
@@ -1252,6 +1252,13 @@ MewDexEntry:
 	db 1,4
 	dw 90
 	text_far _MewDexEntry
+	text_end
+
+PyukumukuDexEntry:
+	db "SEA CUKE@"
+	db 1,0
+	dw 26
+	text_far _PyukumukuDexEntry
 	text_end
 
 MissingNoDexEntry:

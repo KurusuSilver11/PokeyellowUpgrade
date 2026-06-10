@@ -1506,3 +1506,13 @@ _MewDexEntry::
 	next "fine, delicate"
 	next "hair can be seen"
 	dex
+
+_PyukumukuDexEntry::
+	text "Lives near"
+	next "shallow seas"
+	next "and beaches."
+
+	page "Ejects organs"
+	next "to catch prey"
+	next "or fight foes"
+	dex
