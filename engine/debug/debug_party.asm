@@ -15,7 +15,7 @@ SetDebugNewGameParty: ; unreferenced except in _DEBUG
 DebugNewGameParty: ; unreferenced except in _DEBUG
 	db SNORLAX, 80
 	db PERSIAN, 80
-	db JIGGLYPUFF, 15
+	db PINKACHU, 55
 	db STARTER_PIKACHU, 5
 	db PYUKUMUKU, 50
 	db -1 ; end
@@ -50,6 +50,17 @@ IF DEF(_DEBUG)
 	ld a, SURF
 	ld [hli], a
 	ld a, STRENGTH
+	ld [hl], a
+
+	; Pinkachu.
+		ld hl, wPartyMon3Moves
+	ld a, PAZ_YPPIZ
+	ld [hli], a
+	ld a, THUNDERBOLT
+	ld [hli], a
+	ld a, AGILITY
+	ld [hli], a
+	ld a, THUNDER_WAVE
 	ld [hl], a
 
 	; Pyukumuku. 

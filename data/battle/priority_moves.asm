@@ -4,6 +4,6 @@
 PriorityMovesList:
         db COUNTER,        1
         db QUICK_ATTACK,   8
-       	db EXTREME_SPEED,  8
+;	db EXTREME_SPEED,  8
         db PAZ_YPPIZ,      8
         db -1 ; end
