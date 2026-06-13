@@ -1,58 +1,96 @@
-PurifyEffect_: ; DELETE MOST OF THIS. I just copypasted RecoilEffect to make it compile in legacy build.
+PurifyEffect_:
 	ldh a, [hWhoseTurn]
 	and a
-	ld a, [wPlayerMoveNum]
+	; Load Player's Turn data
+	ld de, wEnemyMonStatus
 	ld hl, wBattleMonMaxHP
+	ld bc, wBattleMonHP
 	jr z, .PurifyEffect
-	ld a, [wEnemyMoveNum]
+	; If it's not Player's turn, load relevant Enemy stats instead.
+	ld de, wBattleMonStatus
 	ld hl, wEnemyMonMaxHP
+	ld bc, wEnemyMonHP
 .PurifyEffect
-	ld d, a
-	ld a, [wDamage]
-	ld b, a
-	ld a, [wDamage + 1]
-	ld c, a
-	srl b
-	rr c
-	ld a, d
-	cp STRUGGLE ; struggle deals 50% recoil damage
-	jr z, .gotRecoilDamage
-	srl b
-	rr c
-.gotRecoilDamage
-	ld a, b
-	or c
-	jr nz, .updateHP
-	inc c ; minimum recoil damage is 1
-.updateHP
-; subtract HP from user due to the recoil damage
-	ld a, [hli]
-	ld [wHPBarMaxHP+1], a
-	ld a, [hl]
-	ld [wHPBarMaxHP], a
-	push bc
-	ld bc, wBattleMonHP - wBattleMonMaxHP
-	add hl, bc
-	pop bc
-	ld a, [hl]
-	ld [wHPBarOldHP], a
-	sub c
-	ld [hld], a
-	ld [wHPBarNewHP], a
-	ld a, [hl]
-	ld [wHPBarOldHP+1], a
-	sbc b
-	ld [hl], a
-	ld [wHPBarNewHP+1], a
-	jr nc, .getHPBarCoords
-; if recoil damage is higher than the Pokemon's HP, set its HP to 0
+	ld a, [de]
+	and a ; does the target have a status ailment?
+	jr nz, .itSucceeded
+	; Target must have a status condition.
+	ld c, 50
+	call DelayFrames
+	jpfar PrintDidntAffectText
+.itSucceeded
+	; Clear the target's status condition
 	xor a
+	ld [de], a
+
+	; Heal the user
+
+	; de = Max HP
+	ld a, [hli]
+	ld d, a
+	ld a, [hld]
+	ld e, a
+
+	push bc
+
+	; bc = Current HP
+	ld h, b ; hl = CurrentHP ptr
+	ld l, c
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ld c, a
+
+	; hl = Max HP - Current HP
+	ld a, e
+	sub c
+	ld l, a
+	ld a, d
+	sbc b
+	ld h, a
+
+	push de
+
+	; de = Maximum amount to heal = 1/2 Max HP
+	srl d
+	rr e
+
+	; Cap amount to heal at amount missing
+	ld a, l
+	sub e
+	ld a, h
+	sbc d
+	jr nc, .updateHP
+	ld d, h
+	ld e, l
+.updateHP
+	; Prep CurrentHP for HP Bar
+	ld a, c ; CurrentHpLow
+	ld [wHPBarOldHP], a
+	ld a, b ; CurrentHpHigh
+	ld [wHPBarOldHP+1], a
+	; Now prep MaxHP
+	pop hl
+	ld a, l ; MaxHpLow
+	ld [wHPBarMaxHP], a
+	ld a, h ; MaxHpHigh
+	ld [wHPBarMaxHP+1], a
+	; Add ToHeal to HP.
+	ld a, c
+	add e
+	ld c, a
+	ld a, b
+	adc d
+	ld b, a
+	; Save CurrentHP (bc)
+	pop hl ; ptr to CurrentHP
+	ld a, b ; CurrentHpHigh
+	ld [wHPBarNewHP+1], a
 	ld [hli], a
+	ld a, c ; CurrentHpLow
+	ld [wHPBarNewHP], a
 	ld [hl], a
-	ld hl, wHPBarNewHP
-	ld [hli], a
-	ld [hl], a
-.getHPBarCoords
+	; HP bar rendering stuff
 	hlcoord 10, 9
 	ldh a, [hWhoseTurn]
 	and a
@@ -63,5 +101,9 @@ PurifyEffect_: ; DELETE MOST OF THIS. I just copypasted RecoilEffect to make it 
 .updateHPBar
 	ld [wHPBarType], a
 	predef UpdateHPBar2
-	ld hl, HitWithRecoilText
+	ld hl, EnemyStatusChangesEliminatedText
 	jp PrintText
+
+EnemyStatusChangesEliminatedText:
+	text_far _EnemyStatusChangesEliminatedText
+	text_end
