@@ -85,7 +85,7 @@ MonsterNames::
 	dname "NINETALES"
 	dname "PIKACHU"
 	dname "RAICHU"
-	dname "MISSINGNO."
+	dname "PINKACHU"
 	dname "MISSINGNO."
 	dname "DRATINI"
 	dname "DRAGONAIR"

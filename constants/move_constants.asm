@@ -172,7 +172,8 @@
 	const SUBSTITUTE   ; a4
 	const INNARDS_OUT  ; a5
 	const PURIFY       ; a6
-	const STRUGGLE     ; a7
+	const PAZ_YPPIZ    ; a7
+	const STRUGGLE     ; a8
 DEF NUM_ATTACKS EQU const_value - 1
 
 DEF CANNOT_MOVE EQU $ff

@@ -95,7 +95,7 @@ EvosMovesPointerTable:
 	dw NinetalesEvosMoves
 	dw PikachuEvosMoves
 	dw RaichuEvosMoves
-	dw MissingNo56EvosMoves
+	dw PinkachuEvosMoves
 	dw MissingNo57EvosMoves
 	dw DratiniEvosMoves
 	dw DragonairEvosMoves
@@ -1115,10 +1115,22 @@ RaichuEvosMoves:
 ; Learnset
 	db 0
 
-MissingNo56EvosMoves:
+PinkachuEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
+	db 2, SPLASH
+	db 6, TAIL_WHIP
+	db 8, THUNDER_WAVE
+	db 11, QUICK_ATTACK
+	db 15, DOUBLE_TEAM
+	db 20, SLAM
+	db 26, THUNDERBOLT
+	db 33, AGILITY
+	db 41, THUNDER
+	db 50, LIGHT_SCREEN
+	db 51, PAZ_YPPIZ
+	db 99, EXPLOSION
 	db 0
 
 MissingNo57EvosMoves:

@@ -1516,3 +1516,13 @@ _PyukumukuDexEntry::
 	next "to catch prey"
 	next "or fight foes"
 	dex
+
+_PinkachuDexEntry::
+	text "A strange Pikachu"
+	next "with shiny pink"
+	next "fur."
+
+	page "It appears to be"
+	next "much stronger than"
+	next "than usual"
+	dex

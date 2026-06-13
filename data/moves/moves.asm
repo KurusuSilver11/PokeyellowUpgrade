@@ -177,5 +177,6 @@ Moves:
 	move SUBSTITUTE,   SUBSTITUTE_EFFECT,            0, NORMAL,       100, 10
 	move INNARDS_OUT,  CHARGE_EFFECT,              150, WATER,         90,  5
 	move PURIFY,       PURIFY_EFFECT,                0, POISON,       100, 20
+	move PAZ_YPPIZ,    NO_ADDITIONAL_EFFECT,        50, PINK,         100, 15
 	move STRUGGLE,     RECOIL_EFFECT,               50, NORMAL,       100, 10
 	assert_table_length NUM_ATTACKS

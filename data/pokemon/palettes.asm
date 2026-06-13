@@ -153,4 +153,5 @@ MonsterPalettes:
 	db PAL_MEWMON    ; MEWTWO
 	db PAL_MEWMON    ; MEW
 	db PAL_PYUKUMUKU ; PYUKUMUKU
+	db PAL_PURPLEMON ; PINKACHU ; Yes I know he's Pink. The origin of him involved Pikachu accidentally having Arbok's palette, and it looks pink with color correction.
 	assert_table_length NUM_POKEMON + 1

@@ -85,7 +85,7 @@ PokedexEntryPointers:
 	dw NinetalesDexEntry
 	dw PikachuDexEntry
 	dw RaichuDexEntry
-	dw MissingNoDexEntry
+	dw PinkachuDexEntry
 	dw MissingNoDexEntry
 	dw DratiniDexEntry
 	dw DragonairDexEntry
@@ -1259,6 +1259,13 @@ PyukumukuDexEntry:
 	db 1,0
 	dw 26
 	text_far _PyukumukuDexEntry
+	text_end
+
+PinkachuDexEntry:
+	db "PINK MOUSE@"
+	db 1,3
+	dw 129
+	text_far _PinkachuDexEntry
 	text_end
 
 MissingNoDexEntry:

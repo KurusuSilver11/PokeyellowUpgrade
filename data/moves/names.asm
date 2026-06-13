@@ -167,5 +167,6 @@ MoveNames::
 	li "SUBSTITUTE"
 	li "INNARDS OUT"
 	li "PURIFY"
+	li "PAZ YPPIZ"
 	li "STRUGGLE"
 	assert_list_length NUM_ATTACKS

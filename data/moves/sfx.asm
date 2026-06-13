@@ -167,6 +167,7 @@ MoveSoundTable:
 	db SFX_BATTLE_2C,          $d8, $04 ; SUBSTITUTE
 	db SFX_BATTLE_0D,          $20, $40 ; INNARDS_OUT
 	db SFX_BATTLE_36,          $30, $60 ; PURIFY
+	db SFX_SUPER_EFFECTIVE,    $00, $10 ; PAZ_YPPIZ
 	db SFX_BATTLE_0B,          $00, $80 ; STRUGGLE
 	assert_table_length NUM_ATTACKS
 	db SFX_BATTLE_0B,          $00, $80
