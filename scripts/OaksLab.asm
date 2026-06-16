@@ -229,8 +229,11 @@ OaksLabRivalTakesPokeballScript:
 	call SetSpriteFacingDirectionAndDelay
 	ld a, RIVAL_STARTER_JOLTEON
 	ld [wRivalStarter], a
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, EEVEE
-	ld [wNamedObjectIndex], a
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	ld a, PAD_SELECT | PAD_START | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
@@ -1018,7 +1021,10 @@ OaksLabPlayerReceivedMonText:
 	text_asm
 	ld a, STARTER_PIKACHU
 	ld [wPlayerStarter], a
-	ld [wNamedObjectIndex], a
+	; TODO: Update loading argument for GetMonName
+	ld [wNamedObjectIndexWord], a
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	call GetMonName
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
