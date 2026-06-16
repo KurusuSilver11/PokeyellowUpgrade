@@ -78,7 +78,10 @@ DoInGameTradeDialogue:
 ; copies name of species a to hl
 InGameTrade_GetMonName:
 	push de
-	ld [wNamedObjectIndex], a
+	; TODO: Update loading argument for GetMonName
+	ld [wNamedObjectIndexWord], a
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	call GetMonName
 	ld hl, wNameBuffer
 	pop de

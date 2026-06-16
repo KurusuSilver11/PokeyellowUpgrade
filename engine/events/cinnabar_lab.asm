@@ -114,7 +114,10 @@ PrintFossilsInBag:
 ; loads the names of the fossil item and the resulting mon
 LoadFossilItemAndMonName::
 	ld a, [wFossilMon]
-	ld [wNamedObjectIndex], a
+	; TODO: Update loading argument for GetMonName
+	ld [wNamedObjectIndexWord], a
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	call GetMonName
 	call CopyToStringBuffer
 	ld a, [wFossilItem]
