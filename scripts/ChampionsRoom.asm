@@ -271,7 +271,10 @@ ChampionsRoomOakText:
 ChampionsRoomOakCongratulatesPlayerText:
 	text_asm
 	ld a, [wPlayerStarter]
-	ld [wNamedObjectIndex], a
+	; TODO: Update loading argument for GetMonName
+	ld [wNamedObjectIndexWord], a
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	call GetMonName
 	ld hl, .Text
 	call PrintText
