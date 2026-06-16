@@ -38,6 +38,11 @@ GetName::
 	dec a
 	jr nz, .otherEntries
 	; 1 = MONSTER_NAME
+	; TODO: Update loading argument for GetMonName
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
+	ld a, [wNameListIndex]
+	ld [wNamedObjectIndexWord], a
 	call GetMonName
 	ld hl, NAME_LENGTH
 	add hl, de
