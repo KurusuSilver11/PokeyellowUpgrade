@@ -104,17 +104,26 @@ GetPrizeMenuId:
 	jr .putNoThanksText
 .putMonName
 	ld a, [wPrize1]
-	ld [wNamedObjectIndex], a
+	; TODO: Update loading argument for GetMonName
+	ld [wNamedObjectIndexWord], a
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	call GetMonName
 	hlcoord 2, 4
 	call PlaceString
 	ld a, [wPrize2]
-	ld [wNamedObjectIndex], a
+	; TODO: Update loading argument for GetMonName
+	ld [wNamedObjectIndexWord], a
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	call GetMonName
 	hlcoord 2, 6
 	call PlaceString
 	ld a, [wPrize3]
-	ld [wNamedObjectIndex], a
+	; TODO: Update loading argument for GetMonName
+	ld [wNamedObjectIndexWord], a
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	call GetMonName
 	hlcoord 2, 8
 	call PlaceString
@@ -188,6 +197,10 @@ HandlePrizeChoice:
 	add hl, de
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
+	; TODO: Update loading argument for GetMonName
+	ld [wNamedObjectIndexWord], a
+	ld a, 0
+	ld [wNamedObjectIndexWord+1], a
 	ld a, [wWhichPrizeWindow]
 	cp 2 ; is prize a TM?
 	jr nz, .getMonName
