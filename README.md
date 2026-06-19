@@ -28,3 +28,14 @@ For other pret projects, see [pret.github.io](https://pret.github.io/).
 [tools]: https://github.com/pret/gb-asm-tools
 [ci]: https://github.com/pret/pokeyellow/actions
 [ci-badge]: https://github.com/pret/pokeyellow/actions/workflows/main.yml/badge.svg
+
+
+Anyway, here's the credits for some things in this repository. 
+
+**Coders:**
+- lucky_capybara_28042 on Discord (LuckyCapybara on GitHub): In charge of 16-bit species index
+- Jaocb (zootoot_the_wise on Discord, pembletonj on GitHub): Coded the move Purify
+
+Move-Purify: 
+Pyukumuku sprites by That-Hime-Kun on DeviantArt
+Pinkachu's sprites were edited from some GBC sprites by Solo993 on DeviantArt
