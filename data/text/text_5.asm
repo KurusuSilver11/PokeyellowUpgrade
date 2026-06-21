@@ -214,6 +214,12 @@ _StatusChangesEliminatedText::
 	line "are eliminated!"
 	prompt
 
+_EnemyStatusChangesEliminatedText::
+	text "<TARGET>'s"
+	line "STATUS changes"
+	cont "are eliminated!"
+	prompt
+
 _GettingPumpedText::
 	text "<USER>'s"
 	line "getting pumped!"
