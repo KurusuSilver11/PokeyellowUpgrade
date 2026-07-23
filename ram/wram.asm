@@ -2300,7 +2300,7 @@ wRoute18Gate1FCurScript:: db
 	ds 78
 wGameProgressFlagsEnd::
 
-	ds 56
+	ds 28
 
 wObtainedHiddenItemsFlags:: flag_array MAX_HIDDEN_ITEMS
 
