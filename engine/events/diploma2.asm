@@ -102,7 +102,8 @@ DisplayDiplomaBottom:
 	call PrintNumber
 
 	ld a, [wNumSetBits]
-	cp NUM_POKEMON
+        ; Completed Kanto dex
+	cp 151
 	ret nz
 	ld de, DiplomaMewTiles
 	hlcoord 2, 0
