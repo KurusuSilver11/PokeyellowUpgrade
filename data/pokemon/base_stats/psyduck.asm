@@ -1,4 +1,4 @@
-	db DEX_PSYDUCK ; pokedex id
+	dw DEX_PSYDUCK ; pokedex id
 
 	db  50,  52,  48,  55,  50
 	;   hp  atk  def  spd  spc

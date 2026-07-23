@@ -1,4 +1,4 @@
-	db DEX_DRATINI ; pokedex id
+	dw DEX_DRATINI ; pokedex id
 
 	db  41,  64,  45,  50,  50
 	;   hp  atk  def  spd  spc

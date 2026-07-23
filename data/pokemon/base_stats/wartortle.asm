@@ -1,4 +1,4 @@
-	db DEX_WARTORTLE ; pokedex id
+	dw DEX_WARTORTLE ; pokedex id
 
 	db  59,  63,  80,  58,  65
 	;   hp  atk  def  spd  spc

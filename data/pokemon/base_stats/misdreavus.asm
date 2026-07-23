@@ -1,4 +1,4 @@
-	db DEX_MISDREAVUS ; pokedex id
+	dw DEX_MISDREAVUS ; pokedex id
 
 	db  35,  55,  30,  90,  50
 	;   hp  atk  def  spd  spc

@@ -1,4 +1,4 @@
-	db DEX_RATTATA ; pokedex id
+	dw DEX_RATTATA ; pokedex id
 
 	db  30,  56,  35,  72,  25
 	;   hp  atk  def  spd  spc

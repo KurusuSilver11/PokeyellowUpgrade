@@ -1,4 +1,4 @@
-	db DEX_CHIKORITA ; pokedex id
+	dw DEX_CHIKORITA ; pokedex id
 
 	db  35,  55,  30,  90,  50
 	;   hp  atk  def  spd  spc

@@ -1,4 +1,4 @@
-	db DEX_TREECKO ; pokedex id
+	dw DEX_TREECKO ; pokedex id
 
 	db  35,  55,  30,  90,  50
 	;   hp  atk  def  spd  spc

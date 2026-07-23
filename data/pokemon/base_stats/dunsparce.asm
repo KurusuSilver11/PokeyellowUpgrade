@@ -1,4 +1,4 @@
-	db DEX_DUNSPARCE ; pokedex id
+	dw DEX_DUNSPARCE ; pokedex id
 
 	db  35,  55,  30,  90,  50
 	;   hp  atk  def  spd  spc

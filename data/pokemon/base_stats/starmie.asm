@@ -1,4 +1,4 @@
-	db DEX_STARMIE ; pokedex id
+	dw DEX_STARMIE ; pokedex id
 
 	db  60,  75,  85, 115, 100
 	;   hp  atk  def  spd  spc

@@ -1,4 +1,4 @@
-	db DEX_SUNKERN ; pokedex id
+	dw DEX_SUNKERN ; pokedex id
 
 	db  35,  55,  30,  90,  50
 	;   hp  atk  def  spd  spc

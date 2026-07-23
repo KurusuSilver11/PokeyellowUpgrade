@@ -1,4 +1,4 @@
-	db DEX_MUDKIP ; pokedex id
+	dw DEX_MUDKIP ; pokedex id
 
 	db  35,  55,  30,  90,  50
 	;   hp  atk  def  spd  spc

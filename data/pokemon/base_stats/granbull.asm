@@ -1,4 +1,4 @@
-	db DEX_GRANBULL ; pokedex id
+	dw DEX_GRANBULL ; pokedex id
 
 	db  35,  55,  30,  90,  50
 	;   hp  atk  def  spd  spc

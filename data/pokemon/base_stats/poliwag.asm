@@ -1,4 +1,4 @@
-	db DEX_POLIWAG ; pokedex id
+	dw DEX_POLIWAG ; pokedex id
 
 	db  40,  50,  40,  90,  40
 	;   hp  atk  def  spd  spc

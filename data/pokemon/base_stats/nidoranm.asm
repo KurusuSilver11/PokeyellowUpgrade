@@ -1,4 +1,4 @@
-	db DEX_NIDORAN_M ; pokedex id
+	dw DEX_NIDORAN_M ; pokedex id
 
 	db  46,  57,  40,  50,  40
 	;   hp  atk  def  spd  spc

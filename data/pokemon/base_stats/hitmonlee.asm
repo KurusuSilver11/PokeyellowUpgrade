@@ -1,4 +1,4 @@
-	db DEX_HITMONLEE ; pokedex id
+	dw DEX_HITMONLEE ; pokedex id
 
 	db  50, 120,  53,  87,  35
 	;   hp  atk  def  spd  spc

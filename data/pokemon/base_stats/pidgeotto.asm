@@ -1,4 +1,4 @@
-	db DEX_PIDGEOTTO ; pokedex id
+	dw DEX_PIDGEOTTO ; pokedex id
 
 	db  63,  60,  55,  71,  50
 	;   hp  atk  def  spd  spc

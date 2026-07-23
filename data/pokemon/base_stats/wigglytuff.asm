@@ -1,4 +1,4 @@
-	db DEX_WIGGLYTUFF ; pokedex id
+	dw DEX_WIGGLYTUFF ; pokedex id
 
 	db 140,  70,  45,  45,  50
 	;   hp  atk  def  spd  spc

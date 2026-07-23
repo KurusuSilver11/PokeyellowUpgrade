@@ -1,4 +1,4 @@
-	db DEX_DRAGONAIR ; pokedex id
+	dw DEX_DRAGONAIR ; pokedex id
 
 	db  61,  84,  65,  70,  70
 	;   hp  atk  def  spd  spc
