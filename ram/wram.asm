@@ -1703,7 +1703,7 @@ wPredefBank:: db
 wMonHeader::
 ; In the ROM base stats data structure, this is the dex number, but it is
 ; overwritten with the internal index number after the header is copied to WRAM.
-wMonHIndex:: db
+wMonHIndex:: dw
 wMonHBaseStats::
 wMonHBaseHP:: db
 wMonHBaseAttack:: db
@@ -2300,7 +2300,7 @@ wRoute18Gate1FCurScript:: db
 	ds 78
 wGameProgressFlagsEnd::
 
-	ds 28
+	ds 27
 
 wObtainedHiddenItemsFlags:: flag_array MAX_HIDDEN_ITEMS
 
