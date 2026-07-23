@@ -99,7 +99,8 @@ LoadFrontSpriteByMonIndex::
 	and a
 	pop hl
 	jr z, .invalidDexNumber ; dex #0 invalid
-	cp NUM_POKEMON + 1
+	; TODO: Fix this
+	cp 152 ; NUM_POKEMON + 1
 	jr c, .validDexNumber   ; dex >#151 invalid
 .invalidDexNumber
 	; This is the so-called "Rhydon trap" or "Rhydon glitch"
