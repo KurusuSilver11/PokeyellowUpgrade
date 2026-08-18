@@ -2109,8 +2109,12 @@ HideSubstituteShowMonAnim:
 	ld a, [wPlayerMonMinimized]
 	and a
 	jr nz, .monIsMinimized
+	; TODO: Temporal migration. Optimize this.
+	xor a
+	ld [wCurPartySpeciesWord+1], a
 	ld a, [wBattleMonSpecies]
 	ld [wCurPartySpecies], a
+	ld [wCurPartySpeciesWord], a
 	ld [wCurSpecies], a
 	call GetMonHeader
 	predef LoadMonBackPic
@@ -2119,8 +2123,11 @@ HideSubstituteShowMonAnim:
 	ld a, [wEnemyMonMinimized]
 	and a
 	jr nz, .monIsMinimized
+	; TODO: Temporal migration. Optimize this.
+	xor a
+	ld [wCurPartySpeciesWord+1], a
 	ld a, [wEnemyMonSpecies]
-	ld [wCurPartySpecies], a
+	ld [wCurPartySpeciesWord], a
 	ld [wCurSpecies], a
 	call GetMonHeader
 	ld de, vFrontPic

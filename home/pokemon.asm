@@ -89,7 +89,11 @@ LoadFrontSpriteByMonIndex::
 	push hl
 	ld a, [wPokedexNum]
 	push af
+	; TODO: Temporal migration. Optimize this.
+	xor a
+	ld [wCurPartySpeciesWord+1], a
 	ld a, [wCurPartySpecies]
+	ld [wCurPartySpeciesWord], a
 	ld [wPokedexNum], a
 	predef IndexToPokedex
 	ld hl, wPokedexNum
@@ -99,7 +103,7 @@ LoadFrontSpriteByMonIndex::
 	and a
 	pop hl
 	jr z, .invalidDexNumber ; dex #0 invalid
-	; TODO: Fix this
+	; TODO: Fix this. Validation must be in 16 bits.
 	cp 152 ; NUM_POKEMON + 1
 	jr c, .validDexNumber   ; dex >#151 invalid
 .invalidDexNumber
@@ -107,8 +111,11 @@ LoadFrontSpriteByMonIndex::
 	; to fail-safe invalid dex numbers
 	; (see https://glitchcity.wiki/wiki/Rhydon_trap
 	; or https://bulbapedia.bulbagarden.net/wiki/Rhydon_glitch)
+	; TODO: Check this assignation
+	xor a
+	ld [wCurPartySpeciesWord+1], a
 	ld a, RHYDON
-	ld [wCurPartySpecies], a
+	ld [wCurPartySpeciesWord], a
 	ret
 .validDexNumber
 	push hl

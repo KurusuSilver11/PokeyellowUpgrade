@@ -15,7 +15,15 @@ UncompressMonSprite::
 ; $4A ≤ index < $74:       bank $B ("Pics 3")
 ; $74 ≤ index < $99:       bank $C ("Pics 4")
 ; $99 ≤ index:             bank $D ("Pics 5")
-	ld a, [wCurPartySpecies]
+	; TODO: Temporal migration. All dummy mons use Pikachu's pics
+	;       in "Pics 3".
+	ld a, [wCurPartySpeciesWord+1]
+	or a
+	jr z, .TemporalContinue
+	ld a, BANK("Pics 3")
+	jp .GotBank
+.TemporalContinue
+	ld a, [wCurPartySpeciesWord]
 	ld b, a
 	cp FOSSIL_KABUTOPS
 	ld a, BANK(FossilKabutopsPic)
@@ -36,7 +44,12 @@ UncompressMonSprite::
 	cp STARMIE + 1
 	ld a, BANK("Pics 4")
 	jr c, .GotBank
+	ld a, b
+	; TODO: Temporal migration. For dummy mons.
+	cp VICTREEBEL + 1
 	ld a, BANK("Pics 5")
+	jr c, .GotBank
+	ld a, BANK("Pics 3")
 .GotBank
 	jp UncompressSpriteData
 

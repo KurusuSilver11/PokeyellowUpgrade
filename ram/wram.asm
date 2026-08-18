@@ -1277,6 +1277,7 @@ wUnusedNamePointer:: dw
 
 wItemPrices:: dw
 
+wCurPartySpeciesWord:: dw
 wCurPartySpecies::
 wCurItem::
 wCurListMenuItem::
@@ -2090,7 +2091,7 @@ wPrinterConnectionOpen:: db
 wPrinterOpcode:: db
 wPikachuEmotionModifier:: db
 
-	ds 19
+	ds 17
 
 ; number of signs in the current map (up to MAX_BG_EVENTS)
 wNumSigns:: db

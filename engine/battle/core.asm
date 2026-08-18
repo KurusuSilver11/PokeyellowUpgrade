@@ -1459,8 +1459,12 @@ EnemySendOutFirstMon:
 	call GBPalNormal
 	ld hl, TrainerSentOutText
 	call PrintText
-	ld a, [wEnemyMonSpecies2]
+	; TODO: Temporal migration. Optimize this after migration wram EnemyMonSpecies.
+	xor a
+	ld [wCurPartySpeciesWord+1], a
+	ld a, [wEnemyMonSpecies]
 	ld [wCurPartySpecies], a
+	ld [wCurPartySpeciesWord], a
 	ld [wCurSpecies], a
 	call GetMonHeader
 	ld de, vFrontPic

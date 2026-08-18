@@ -79,12 +79,19 @@ InitWildBattle:
 	ld_hli_a_string "GHOST@"
 	ld a, [wCurPartySpecies]
 	push af
+        ; TODO: Temporal fix. Migrate this.
 	ld a, MON_GHOST
-	ld [wCurPartySpecies], a
+	ld [wCurPartySpeciesWord], a
+	xor a
+	ld [wCurPartySpeciesWord+1], a
 	ld de, vFrontPic
 	call LoadMonFrontSprite ; load ghost sprite
 	pop af
 	ld [wCurPartySpecies], a
+	; TODO: Temporal fix. Migrate this.
+	ld [wCurPartySpeciesWord], a
+	xor a
+	ld [wCurPartySpeciesWord+1], a
 	jr .spriteLoaded
 .isNoGhost
 	ld de, vFrontPic
