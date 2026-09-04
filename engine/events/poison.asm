@@ -3,8 +3,8 @@ ApplyOutOfBattlePoisonDamage:
 	ASSERT BIT_SCRIPTED_MOVEMENT_STATE == 7
 	add a ; overflows scripted movement state bit into carry flag
 	jp c, .noBlackOut ; no black out if joypad states are being simulated
-	ld a, [wd492]
-	bit 7, a
+	ld a, [wPikachuMapScriptFlags]
+	bit BIT_PIKACHU_MAP_SCRIPT_ACTIVE, a
 	jp nz, .noBlackOut
 	ld a, [wStatusFlags4]
 	bit BIT_LINK_CONNECTED, a
@@ -139,7 +139,7 @@ UpdatePikachuHappinessAndMood:
 	ld hl, wPikachuMood
 	ld a, [hl]
 	cp 128 ; central value
-	jr z, .update_wd49b ; mood == 128, don't modify it
+	jr z, .clearEmotionModifier ; mood == 128, don't modify it
 	jr c, .increaseMood ; mood < 128, must increase by 1
 	; mood > 128, must decrease by 1 (so decrease by 2 and then increase by 1)
 	dec a
@@ -147,10 +147,10 @@ UpdatePikachuHappinessAndMood:
 .increaseMood
 	inc a
 	ld [hl], a
-; if the mood has reached its "stable" central value, do not update wd49b
+; if the mood has reached its "stable" central value, do not update the emotion modifier
 	cp 128
 	ret nz
-.update_wd49b
+.clearEmotionModifier
 	xor a
-	ld [wd49b], a ; variable used in other mood-related functions, to keep track if the mood was "stable"
+	ld [wPikachuEmotionModifier], a ; variable used in other mood-related functions, to keep track if the mood was "stable"
 	ret

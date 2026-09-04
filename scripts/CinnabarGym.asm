@@ -104,8 +104,8 @@ PikachuMovementData_74f9e:
 	db $3f
 
 CinnabarGymScript_74fa3:
-	ld a, [wd471]
-	bit 7, a
+	ld a, [wPikachuSpawnStateFlags]
+	bit BIT_PIKACHU_SPAWN_STARTER, a
 	ret z
 	push hl
 	push bc
@@ -132,7 +132,7 @@ CinnabarGymGetOpponentTextScript:
 CinnabarGymOpenGateScript:
 	call CinnabarGymScript_753e9
 	ld a, [wIsInBattle]
-	cp $ff
+	cp LOST_BATTLE
 	jp z, CinnabarGymResetScripts
 	ld a, [wTrainerHeaderFlagBit]
 	sub $2
@@ -198,7 +198,7 @@ CinnabarGymScript_75041:
 CinnabarGymBlainePostBattleScript:
 	call CinnabarGymScript_753e9
 	ld a, [wIsInBattle]
-	cp $ff
+	cp LOST_BATTLE
 	jp z, CinnabarGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a

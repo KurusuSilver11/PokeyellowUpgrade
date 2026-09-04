@@ -328,7 +328,7 @@ SECTION "bank30", ROMX
 
 ; This whole bank is garbage data.
 IF !DEF(_DEBUG)
-	INCBIN "garbage/bank30.bin"
+	INCBIN "garbage/bank30.2bpp"
 ENDC
 
 
@@ -343,9 +343,8 @@ INCLUDE "engine/printer/printer2.asm"
 INCLUDE "engine/overworld/npc_movement_2.asm"
 
 
-SECTION "Pikachu PCM", ROMX
+SECTION "bank3C", ROMX
 
-INCLUDE "engine/pikachu/pikachu_pcm.asm"
 INCLUDE "engine/overworld/advance_player_sprite.asm"
 INCLUDE "engine/events/black_out.asm"
 INCLUDE "engine/overworld/specific_script_flags.asm"

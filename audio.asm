@@ -537,8 +537,14 @@ INCLUDE "audio/music/yellowunusedsong.asm"
 INCLUDE "audio/music/meetjessiejames.asm"
 
 IF !DEF(_DEBUG)
-	INCBIN "garbage/bank20.bin"
+	INCBIN "garbage/bank20.2bpp", 185
 ENDC
+
+
+SECTION "Pikachu PCM", ROMX
+
+INCLUDE "audio/pikachu_pcm.asm"
+INCLUDE "audio/pikachu_cries_pointers.asm"
 
 
 ; Pikachu cries are in different banks
